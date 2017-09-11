@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="styles.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+                crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+                crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+                crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+                crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+                crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+        <div class="jumbotron">
+                <div class="container">
+                        <h1 class="text-center" style="margin-top:30px;margin-bottom:30px;">Process Scheduling Simulator</h1>
+                </div>
+        </div>
+        <div class="row-header1">
+                <form>
+                        <div class="form-group">
+                                <input id="number" class="col-md-6 offset-3 form-control row-header" type="text" placeholder="Enter the number of Processes"><br><br>
+                                <button class="btn btn-md btn-info row-header col-md-2 push-5" onclick="disp()" id="num_of_process" style="margin:0px auto" type="button">Submit</button>
+                        </div>
+                </form>
+        </div>
+        <div class="row-header" id="process" style="display: none;">
+                <div class="container ">
+                        <div class="row row-header text-center" id="first_processes">
+                                <label class="col-md-3 offset-1" for="first_process">First Process:</label>
+                                <input class="col-md-3" id="first_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="first_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row row-header text-center" id="second_processes">
+                                <label class="col-md-3 offset-1" for="second_process">Second Process:</label>
+                                <input class="col-md-3" id="second_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="second_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="third_processes">
+                                <label class="col-md-3" for="third_process">Third Process:</label>
+                                <input class="col-md-3" id="third_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="third_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="fourth_processes">
+                                <label class="col-md-3" for="fourth_process">Fourth Process:</label>
+                                <input class="col-md-3" id="fourth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="fourth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="processes">
+                                <label class="col-md-3" for="fifth_process">Fifth Process:</label>
+                                <input class="col-md-3" id="fifth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="fifth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="sixth_processes">
+                                <label class="col-md-3" for="sixth_process">Sixth Process:</label>
+                                <input class="col-md-3" id="sixth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="sixth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="seventh_processes">
+                                <label class="col-md-3" for="seventh_process">Seventh Process:</label>
+                                <input class="col-md-3" id="seventh_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="seventh_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="eighth_processes">
+                                <label class="col-md-3" for="eighth_process">Eighth Process:</label>
+                                <input class="col-md-3" id="eighth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="eighth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                        <div class="row-header text-center" id="ninth_processes">
+                                <label class="col-md-3" for="ninth_process">Ninth Process:</label>
+                                <input class="col-md-3" id="ninth_process" type="text" placeholder="Enter the Process name">
+                                <input class="col-md-3 offset-1" id="ninth_process_com" type="text" placeholder="Enter the Process burst time">
+                        </div>
+                </div>
+        </div>
+
+
+        <form>
+                <div class=" form-group row" style="margin-top:100px;">
+                        <h2 style="margin-left:15% ">Choose the Scheduling Algoithm:</h2>
+                        <select style="margin-left:30px">
+                                        <option value="0">None</option>
+                                        <option value="1">First Come First Serve</option>
+                                        <option value="2">Shortest Job First</option>
+                                        <option value="3">Priority Scheduling</option>
+                                        <option value="4">Round Scheduling</option>       
+                        </select>
+
+                        <button class="btn btn-info btn-md" style="margin-left:30px" id="calculate">Calculate</button>
+
+                </div>
+
+        </form>
+
+
+
+        <script>
+        function disp(){
+        var yourUl = document.getElementById("process");
+        yourUl.style.display = yourUl.style.display === 'none' ? '' : 'none';
+        };
+        </script>
+</body>
+
+
+</html>
