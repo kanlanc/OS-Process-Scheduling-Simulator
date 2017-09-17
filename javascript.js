@@ -47,6 +47,7 @@ function algorithm() {
     dict[process7_value]=process7_name;
     dict[process8_value]=process8_name;
     dict[process9_value]=process9_name;
+    var dict1={};
     if (value == 0) {
             //do nothing                     
     }
@@ -81,6 +82,44 @@ function algorithm() {
     }
     else if (value == 3) {
             //priority scheduling
+            var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value+ process9_value;
+            var average_time = average_time_num / number;
+
+            var yourUl2 = document.getElementById("priority_form");
+            yourUl2.style.display = yourUl2.style.display === 'none' ? '' : 'none';
+            
+            var process1_priority = document.getElementById('priority_1').value*1;
+            var process2_priority = document.getElementById('priority_2').value*1;
+            var process3_priority = document.getElementById('priority_3').value*1;
+            var process4_priority = document.getElementById('priority_4').value*1;
+            var process5_priority = document.getElementById('priority_5').value*1;
+            var process6_priority = document.getElementById('priority_6').value*1;
+            var process7_priority = document.getElementById('priority_7').value*1;
+            var process8_priority = document.getElementById('priority_8').value*1;
+            var process9_priority = document.getElementById('priority_9').value*1;
+
+            dict1[process1_priority]=process1_value;
+            dict1[process2_priority]=process2_value;
+            dict1[process3_priority]=process3_value;
+            dict1[process4_priority]=process4_value;
+            dict1[process5_priority]=process5_value;
+            dict1[process6_priority]=process6_value;
+            dict1[process7_priority]=process7_value;
+            dict1[process8_priority]=process8_value;
+            dict1[process9_priority]=process9_value;
+
+            var array1=[process1_priority,process2_priority,process3_priority,process4_priority,process5_priority,process6_priority,process7_priority,process8_priority,process9_priority];
+            array1.sort();
+            for(var i=0;i<array1.length;i++)
+            {
+                var xam = dict1[array1[i].toString()];
+                process_order=process_order+","+xam;
+            }
+
+            ans.innerHTML = average_time;
+            ans1.innerHTML = process_order;
+            
+            
     }
     else if (value == 4) {
             //round robin
