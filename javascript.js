@@ -1,7 +1,7 @@
 function disp() {
     var yourUl = document.getElementById("process");
     yourUl.style.display = yourUl.style.display === 'none' ? '' : 'none';
-};
+}
 function algorithm() {
     var yourUl1 = document.getElementById("description");
     yourUl1.style.display = yourUl1.style.display === 'none' ? '' : 'none';
@@ -123,7 +123,13 @@ function algorithm() {
     }
     else if (value == 4) {
             //round robin
+            var yourUl3 = document.getElementById("round_form");
+            yourUl3.style.display = yourUl3.style.display === 'none' ? '' : 'none';
+            var count,j,time,remain,flag=0,time_quantum;
+            var wait_time=0,turnaround_time=0;
+            var at=[],bt=[],rt=[];
+
 
     }
 
-};
+}
