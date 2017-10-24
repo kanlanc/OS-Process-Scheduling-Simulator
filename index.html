@@ -30,7 +30,9 @@
         <div class="row-header1">
                 <form>
                         <div class="form-group">
-                                <input id="number" class="col-md-6 offset-3 form-control row-header" type="text" placeholder="Enter the number of Processes"><br><br>
+                                <input id="number" class="col-md-6 offset-3 form-control row-header" type="text" placeholder="Enter the number of Processes">
+                                <br>
+                                <br>
                                 <button class="btn btn-md btn-info row-header col-md-2 push-5" onclick="disp()" id="num_of_process" style="margin:0px auto"
                                         type="button">Submit</button>
                         </div>
@@ -91,11 +93,11 @@
                 <div class=" form-group row" style="margin-top:100px;">
                         <h2 style="margin-left:15% ">Choose the Scheduling Algoithm:</h2>
                         <select style="margin-left:30px" id="algo">
-                                        <option value="0">None</option>
-                                        <option value="1">First Come First Serve</option>
-                                        <option value="2">Shortest Job First</option>
-                                        <option value="3">Priority Scheduling</option>
-                                        <option value="4">Round Scheduling</option>       
+                                <option value="0">None</option>
+                                <option value="1">First Come First Serve</option>
+                                <option value="2">Shortest Job First</option>
+                                <option value="3">Priority Scheduling</option>
+                                <option value="4">Round Scheduling</option>
                         </select>
 
                         <button class="btn btn-info btn-md" onclick="algorithm()" style="margin-left:30px" type="button" id="calculate">Calculate</button>
@@ -163,46 +165,50 @@
         </div>
 
         <div id="round_form" class="row-header row" style="display: none;">
-                
-                                <div class="container ">
-                                        <div class="row row-header text-center" id="round_first_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_1">First Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_1" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_second_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_2">Second Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_2" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_third_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_3">Third Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_3" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_fourth_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_4">Fourth Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_4" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_fifth_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_5">Fifth Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_5" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_sixth_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_6">Sixth Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_6" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_seventh_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_7">Seventh Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_7" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_eigth_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_8">Eighth Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_8" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                        <div class="row row-header text-center" id="round_ninth_priority">
-                                                <label class="col-md-3 offset-1" for="round_priority_9">Ninth Process Arrival Time:</label>
-                                                <input class="col-md-3 offset-1" value=0 id="round_priority_9" type="text" placeholder="Enter the arrival time">
-                                        </div>
-                                </div>
+
+                <div class="container ">
+                        <div class="row row-header text-center" id="round_quantum_time_div">
+                                <label class="col-md-3 offset-1" for="round_quantum_time">Quantum Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_quantum_time" type="text" placeholder="Enter the quantum time">
                         </div>
+                        <div class="row row-header text-center" id="round_first_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_1">First Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_1" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_second_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_2">Second Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_2" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_third_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_3">Third Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_3" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_fourth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_4">Fourth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_4" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_fifth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_5">Fifth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_5" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_sixth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_6">Sixth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_6" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_seventh_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_7">Seventh Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_7" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_eigth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_8">Eighth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_8" type="text" placeholder="Enter the arrival time">
+                        </div>
+                        <div class="row row-header text-center" id="round_ninth_priority">
+                                <label class="col-md-3 offset-1" for="round_priority_9">Ninth Process Arrival Time:</label>
+                                <input class="col-md-3 offset-1" value=0 id="round_priority_9" type="text" placeholder="Enter the arrival time">
+                        </div>
+                </div>
+        </div>
 
 
         <script src="javascript.js">
