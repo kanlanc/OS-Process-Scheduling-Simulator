@@ -36,7 +36,31 @@ function algorithm() {
     var process9_name = document.getElementById("ninth_process").value;
     var process9_value = document.getElementById("ninth_process_com").value * 1;
     var process_order = "start";
-    var array = [process1_value, process2_value, process3_value, process4_value, process5_value, process6_value, process7_value, process8_value, process9_value];
+    var waiting_time = "start";
+    var turn_around_time = "start";
+
+    // var array = [process1_value, process2_value, process3_value, process4_value, process5_value, process6_value, process7_value, process8_value, process9_value];
+    var array = [];
+
+    if (process1_value != 0)
+        array.push(process1_value);
+    if (process2_value != 0)
+        array.push(process2_value);
+    if (process3_value != 0)
+        array.push(process3_value);
+    if (process4_value != 0)
+        array.push(process4_value);
+    if (process5_value != 0)
+        array.push(process5_value);
+    if (process6_value != 0)
+        array.push(process6_value);
+    if (process7_value != 0)
+        array.push(process7_value);
+    if (process8_value != 0)
+        array.push(process8_value);
+    if (process9_value != 0)
+        array.push(process9_value);
+
     var dict = {};
     dict[process1_value] = process1_name;
     dict[process2_value] = process2_name;
@@ -56,12 +80,32 @@ function algorithm() {
 
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
+        var wt = [], avwt = 0, avtat = 0;
+        var tat = []
+        wt[0] = 0;
+        for (var i = 1; i < number; i++) {
+            wt[i] = 0;
+            for (j = 0; j < i; j++)
+                wt[i] += array[j];
+        }
+        for (i = 0; i < number; i++) {
+            tat[i] = array[i] + wt[i];
+            avwt += wt[i];
+            avtat += tat[i];
+
+        }
         for (var i = 0; i < array.length; i++) {
             var xam = dict[array[i].toString()];
+            var ram = wt[i];
+            var lam = tat[i];
             process_order = process_order + "," + xam;
+            waiting_time = waiting_time + "," + ram;
+            turn_around_time = turn_around_time + "," + lam;
         }
         ans.innerHTML = average_time;
         ans1.innerHTML = process_order;
+        ans2.innerHTML = waiting_time;
+        ans3.innerHTML = turn_around_time;
     }
 
     else if (value == 2) {
@@ -69,13 +113,32 @@ function algorithm() {
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
         array.sort();
+        var wt = [], avwt = 0, avtat = 0;
+        var tat = []
+        wt[0] = 0;
+        for (var i = 1; i < number; i++) {
+            wt[i] = 0;
+            for (j = 0; j < i; j++)
+                wt[i] += array[j];
+        }
+        for (i = 0; i < number; i++) {
+            tat[i] = array[i] + wt[i];
+            avwt += wt[i];
+            avtat += tat[i];
+
+        }
         for (var i = 0; i < array.length; i++) {
             var xam = dict[array[i].toString()];
+            var ram = wt[i];
+            var lam = tat[i];
             process_order = process_order + "," + xam;
+            waiting_time = waiting_time + "," + ram;
+            turn_around_time = turn_around_time + "," + lam;
         }
         ans.innerHTML = average_time;
         ans1.innerHTML = process_order;
-
+        ans2.innerHTML = waiting_time;
+        ans3.innerHTML = turn_around_time;
 
     }
     else if (value == 3) {
@@ -96,17 +159,46 @@ function algorithm() {
         var process8_priority = document.getElementById('priority_8').value * 1;
         var process9_priority = document.getElementById('priority_9').value * 1;
 
-        dict1[process1_priority] = process1_value;
-        dict1[process2_priority] = process2_value;
-        dict1[process3_priority] = process3_value;
-        dict1[process4_priority] = process4_value;
-        dict1[process5_priority] = process5_value;
-        dict1[process6_priority] = process6_value;
-        dict1[process7_priority] = process7_value;
-        dict1[process8_priority] = process8_value;
-        dict1[process9_priority] = process9_value;
 
-        var array1 = [process1_priority, process2_priority, process3_priority, process4_priority, process5_priority, process6_priority, process7_priority, process8_priority, process9_priority];
+        // var array1 = [process1_priority, process2_priority, process3_priority, process4_priority, process5_priority, process6_priority, process7_priority, process8_priority, process9_priority];
+        var array1 = [];
+        if (process1_priority != 0) {
+            array1.push(process1_priority);
+            dict1[process1_priority] = process1_name;
+        }
+        if (process2_priority != 0) {
+            dict1[process2_priority] = process2_name;
+            array1.push(process2_priority);
+        }
+        if (process3_priority != 0) {
+            dict1[process3_priority] = process3_name;
+            array1.push(process3_priority);
+        }
+        if (process4_priority != 0) {
+            dict1[process4_priority] = process4_name;
+            array1.push(process4_priority);
+        }
+        if (process5_priority != 0) {
+            dict1[process5_priority] = process5_name;
+            array1.push(process5_priority);
+        }
+        if (process6_priority != 0) {
+            dict1[process6_priority] = process6_name;
+            array1.push(process6_priority);
+        }
+        if (process7_priority != 0) {
+            dict1[process7_priority] = process7_name;
+            array1.push(process7_priority);
+        }
+        if (process8_priority != 0) {
+            dict1[process8_priority] = process8_name;
+            array1.push(process8_priority);
+        }
+        if (process9_priority != 0) {
+            dict1[process9_priority] = process9_name;
+            array1.push(process9_priority);
+        }
+
         array1.sort();
         for (var i = 0; i < array1.length; i++) {
             var xam = dict1[array1[i].toString()];
@@ -132,48 +224,44 @@ function algorithm() {
         var process7_arrival = document.getElementById('round_priority_7').value * 1;
         var process8_arrival = document.getElementById('round_priority_8').value * 1;
         var process9_arrival = document.getElementById('round_priority_9').value * 1;
-        var count,j,n,time,remain,flag=0; 
-        var wait_time=0,turnaround_time=0;
-        var at=[],bt=[],rt=[]; 
-        n=number;
-        remain=n;
-        at=[process1_arrival,process2_arrival,process3_arrival,process4_arrival,process5_arrival,process6_arrival,process7_arrival,process8_arrival,process9_arrival];
-        for(count=0;count<n;count++){
-            bt[count]=array[count];
-            rt[count]=bt[count];
+        var count, j, n, time, remain, flag = 0;
+        var wait_time = 0, turnaround_time = 0;
+        var at = [], bt = [], rt = [];
+        n = number;
+        remain = n;
+        at = [process1_arrival, process2_arrival, process3_arrival, process4_arrival, process5_arrival, process6_arrival, process7_arrival, process8_arrival, process9_arrival];
+        for (count = 0; count < n; count++) {
+            bt[count] = array[count];
+            rt[count] = bt[count];
         }
-        for(time=0,count=0;remain!=0;)
-        {
-            if(rt[count]<=time_quantum && rt[count]>0) 
-            { 
-              time+=rt[count]; 
-              rt[count]=0; 
-              flag=1; 
-            } 
-            else if(rt[count]>0) 
-            { 
-              rt[count]-=time_quantum; 
-              time+=time_quantum; 
-            } 
-            if(rt[count]==0 && flag==1) 
-            { 
-              remain--; 
-              var temporary=count+1; 
-              process_order=process_order+','+temporary;
-              wait_time+=time-at[count]-bt[count]; 
-              turnaround_time+=time-at[count]; 
-              flag=0; 
-            } 
-            if(count==n-1) 
-            count=0; 
-          else if(at[count+1]<=time) 
-            count++; 
-          else 
-            count=0; 
+        for (time = 0, count = 0; remain != 0;) {
+            if (rt[count] <= time_quantum && rt[count] > 0) {
+                time += rt[count];
+                rt[count] = 0;
+                flag = 1;
+            }
+            else if (rt[count] > 0) {
+                rt[count] -= time_quantum;
+                time += time_quantum;
+            }
+            if (rt[count] == 0 && flag == 1) {
+                remain--;
+                var temporary = count + 1;
+                process_order = process_order + ',' + temporary;
+                wait_time += time - at[count] - bt[count];
+                turnaround_time += time - at[count];
+                flag = 0;
+            }
+            if (count == n - 1)
+                count = 0;
+            else if (at[count + 1] <= time)
+                count++;
+            else
+                count = 0;
         }
         ans.innerHTML = average_time;
         ans1.innerHTML = process_order;
-        }
-        
     }
+
+}
 
