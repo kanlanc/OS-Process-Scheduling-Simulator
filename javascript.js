@@ -276,7 +276,7 @@ function algorithm() {
         //round robin
         var yourUl3 = document.getElementById("round_form");
         yourUl3.style.display = yourUl3.style.display === 'none' ? '' : 'none';
-        var time_quantum = document.getElementById("round_quantum_time").value*1;
+        var time_quantum = document.getElementById("round_quantum_time").value * 1;
         var process1_arrival = document.getElementById('round_priority_1').value * 1;
         var process2_arrival = document.getElementById('round_priority_2').value * 1;
         var process3_arrival = document.getElementById('round_priority_3').value * 1;
@@ -388,21 +388,25 @@ function algorithm() {
             console.log(total_tat);
 
         }
-        
+
         var quantum = time_quantum;
-        console.log(quantum+" is time quantum");
+        console.log(quantum + " is time quantum");
+        for (var i = 0; i < n; i++)
+            bt[i] = array[i];
+        for (var i = 0; i < n; i++)
+            processes[i] = dict[array[i].toString()];
         if (time_quantum != 0) {
-            for (var i = 0; i < n; i++)
-                bt[i] = array[i];
-            for (var i = 0; i < n; i++)
-                processes[i] = dict[array[i].toString()];
             findavgTime();
             ans1.innerHTML = process_order;
             ans2.innerHTML = waiting_time;
             ans3.innerHTML = turn_around_time;
         }
-        else
-            prompt("Please enter quantum time");
+        // else {
+        // //quantum = prompt("Please enter quantum time")*1;
+        // findavgTime();
+        // ans1.innerHTML = process_order;
+        // ans2.innerHTML = waiting_time;
+        // ans3.innerHTML = turn_around_time; }
 
 
         //Ends here
