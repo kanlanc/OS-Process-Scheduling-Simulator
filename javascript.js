@@ -81,7 +81,8 @@ function algorithm() {
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
         var wt = [], avwt = 0, avtat = 0;
-        var tat = []
+        var tat = [];
+        var average_waiting_time=0,average_turn_time=0;
         wt[0] = 0;
         for (var i = 1; i < number; i++) {
             wt[i] = 0;
@@ -98,23 +99,32 @@ function algorithm() {
             var xam = dict[array[i].toString()];
             var ram = wt[i];
             var lam = tat[i];
+            average_waiting_time+=wt[i];
+            average_turn_time+=tat[i];
+
             process_order = process_order + "," + xam;
             waiting_time = waiting_time + "," + ram;
             turn_around_time = turn_around_time + "," + lam;
         }
+
+        average_waiting_time=average_waiting_time/number;
+        average_turn_time=average_turn_time/number;
         ans.innerHTML = average_time;
         ans1.innerHTML = process_order;
         ans2.innerHTML = waiting_time;
         ans3.innerHTML = turn_around_time;
+        ans4.innerHTML=average_waiting_time;
+        ans5.innerHTML=average_turn_time;
     }
 
     else if (value == 2) {
         //shj
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
+        var average_waiting_time=0,average_turn_time=0;
         array.sort();
         var wt = [], avwt = 0, avtat = 0;
-        var tat = []
+        var tat = [];
         wt[0] = 0;
         for (var i = 1; i < number; i++) {
             wt[i] = 0;
@@ -131,21 +141,26 @@ function algorithm() {
             var xam = dict[array[i].toString()];
             var ram = wt[i];
             var lam = tat[i];
+            average_waiting_time+=wt[i];
+            average_turn_time+=tat[i];
             process_order = process_order + "," + xam;
             waiting_time = waiting_time + "," + ram;
             turn_around_time = turn_around_time + "," + lam;
         }
+        average_waiting_time=average_waiting_time/number;
+        average_turn_time=average_turn_time/number;
         ans.innerHTML = average_time;
         ans1.innerHTML = process_order;
         ans2.innerHTML = waiting_time;
         ans3.innerHTML = turn_around_time;
-
+        ans4.innerHTML=average_waiting_time;
+        ans5.innerHTML=average_turn_time;
     }
     else if (value == 3) {
         //priority scheduling
         var average_time_num = process1_value + process2_value + process3_value + process4_value + process5_value + process6_value + process7_value + process8_value + process9_value;
         var average_time = average_time_num / number;
-
+        var average_waiting_time=0,average_turn_time=0;
         var yourUl2 = document.getElementById("priority_form");
         yourUl2.style.display = yourUl2.style.display === 'none' ? '' : 'none';
 
@@ -254,14 +269,20 @@ function algorithm() {
             var xam = dict1[array1[i].toString()];
             var ram = wt[i];
             var lam = tat[i];
+            average_waiting_time+=wt[i];
+            average_turn_time+=tat[i];
             process_order = process_order + "," + xam;
             waiting_time = waiting_time + "," + ram;
             turn_around_time = turn_around_time + "," + lam;
         }
+        average_waiting_time=average_waiting_time/number;
+        average_turn_time=average_turn_time/number;
         ans.innerHTML = average_time;
         ans1.innerHTML = process_order;
         ans2.innerHTML = waiting_time;
         ans3.innerHTML = turn_around_time;
+        ans4.innerHTML=average_waiting_time;
+        ans5.innerHTML=average_turn_time;
         // for (var i = 0; i < array1.length; i++) {
         //     var xam = dict1[array1[i].toString()];
         //     process_order = process_order + "," + xam;
@@ -292,7 +313,7 @@ function algorithm() {
         //Starts from here
         var processes = [], n = number, bt = [], wt = [], quantum, tat = [], process_order = "start";
         var turn_around_time = "start", waiting_time = "start";
-
+        var average_waiting_time=0,average_turn_time=0;
         function findWaitingTime() {
             // Make a copy of burst times bt[] to store remaining
             // burst times.
@@ -383,7 +404,9 @@ function algorithm() {
                 total_wt = total_wt + wt[i];
                 total_tat = total_tat + tat[i];
             }
-            ans.innerHTML = total_wt / n;
+            ans.innerHTML = average_time;
+            ans4.innerHTML = total_wt / number;
+            ans5.innerHTML=total_tat/number;
             console.log(total_wt);
             console.log(total_tat);
 
